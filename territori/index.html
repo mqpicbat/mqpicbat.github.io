@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<title>territori — mqpicbat</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root { --black:#000; --white:#fff; --dim:rgba(255,255,255,0.45); --line:rgba(255,255,255,0.18); --accent:#e8ff00; --mono:'Space Mono',monospace; --speed:0.35s; }
+html { scroll-behavior:smooth; }
+body { background:var(--black); color:var(--white); font-family:var(--mono); -webkit-font-smoothing:antialiased; cursor:crosshair; overflow-x:hidden; }
+body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E"); opacity:0.028; pointer-events:none; z-index:9999; }
+body::after { content:''; position:fixed; top:0; left:0; width:100%; height:2px; background:var(--accent); z-index:9998; }
+.topbar { padding:clamp(24px,3vw,40px) clamp(24px,6vw,80px); display:flex; justify-content:space-between; align-items:center; animation:fadeUp 0.7s ease both; }
+.topbar-logo { font-size:13px; font-weight:700; letter-spacing:3px; text-decoration:none; color:var(--white); }
+.topbar-logo span { color:var(--accent); }
+.topbar-back { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--dim); text-decoration:none; transition:color var(--speed); }
+.topbar-back:hover { color:var(--white); }
+.hero { padding:clamp(40px,6vw,80px) clamp(24px,6vw,80px) 0; animation:fadeUp 0.7s 0.1s ease both; }
+.section-tag { font-size:9px; letter-spacing:5px; text-transform:uppercase; color:var(--accent); margin-bottom:20px; display:block; }
+.hero h1 { font-size:clamp(26px,5vw,52px); font-weight:700; letter-spacing:2px; line-height:1.1; }
+.hero-desc { margin-top:20px; font-size:13px; color:var(--dim); max-width:560px; line-height:1.8; }
+hr.rule { margin:clamp(32px,4vw,56px) clamp(24px,6vw,80px) 0; border:none; border-top:1px solid var(--line); animation:scaleX 1s 0.2s ease both; transform-origin:left; }
+.accordion { padding:clamp(32px,4vw,56px) clamp(24px,6vw,80px); max-width:1000px; animation:fadeUp 0.7s 0.25s ease both; }
+.accordion-item { border-bottom:1px solid var(--line); }
+.accordion-trigger { width:100%; background:none; border:none; color:var(--white); font-family:var(--mono); cursor:pointer; padding:24px 0; display:flex; justify-content:space-between; align-items:center; gap:16px; text-align:left; transition:color var(--speed); }
+.accordion-trigger:hover { color:var(--accent); }
+.trigger-left { display:flex; align-items:baseline; gap:20px; }
+.trigger-num { font-size:9px; letter-spacing:3px; color:var(--dim); min-width:28px; }
+.trigger-title { font-size:14px; letter-spacing:2px; text-transform:uppercase; font-weight:700; }
+.trigger-icon { font-size:18px; color:var(--dim); transition:transform var(--speed),color var(--speed); flex-shrink:0; line-height:1; }
+.accordion-item.open .trigger-icon { transform:rotate(45deg); color:var(--accent); }
+.accordion-body { overflow:hidden; max-height:0; transition:max-height 0.5s cubic-bezier(0.4,0,0.2,1); }
+.accordion-body-inner { padding:0 0 32px 48px; font-size:12px; line-height:1.85; color:var(--dim); max-width:640px; }
+.accordion-body-inner p+p { margin-top:14px; }
+.placeholder-tag { display:inline-block; margin-top:20px; font-size:9px; letter-spacing:3px; text-transform:uppercase; border:1px solid var(--line); padding:4px 10px; color:var(--dim); }
+footer { padding:clamp(40px,5vw,60px) clamp(24px,6vw,80px) clamp(24px,3vw,36px); display:flex; justify-content:space-between; align-items:flex-end; border-top:1px solid var(--line); }
+.footer-copy { font-size:10px; letter-spacing:3px; color:var(--dim); text-transform:uppercase; }
+.footer-coords { font-size:10px; letter-spacing:2px; color:var(--dim); text-align:right; }
+.footer-coords span { display:block; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes scaleX { from{transform:scaleX(0);opacity:0} to{transform:scaleX(1);opacity:1} }
+@media(max-width:600px){footer{flex-direction:column;gap:16px;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="topbar-logo" href="../../">mqpicbat<span>_</span></a>
+  <a class="topbar-back" href="../../">← índex</a>
+</div>
+
+<div class="hero">
+  <span class="section-tag">03 / territori</span>
+  <h1>terri-<br>tori</h1>
+  <p class="hero-desc">
+    anàlisi geoespacial, dades obertes i representació
+    crítica del paisatge.
+  </p>
+</div>
+
+<hr class="rule">
+
+<div class="accordion">
+
+  <div class="accordion-item">
+    <button class="accordion-trigger" aria-expanded="false">
+      <div class="trigger-left"><span class="trigger-num">01</span><span class="trigger-title">anàlisi geoespacial</span></div>
+      <span class="trigger-icon">+</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      <p>ús de SIG, teledetecció i dades satelitals per a l'anàlisi del territori. visualització i interpretació de dades espacials.</p>
+      <span class="placeholder-tag">contingut pròximament</span>
+    </div></div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-trigger" aria-expanded="false">
+      <div class="trigger-left"><span class="trigger-num">02</span><span class="trigger-title">dades obertes</span></div>
+      <span class="trigger-icon">+</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      <p>exploració i processament de datasets públics per a la recerca territorial. OpenStreetMap, Copernicus, INDEC i altres fonts.</p>
+      <span class="placeholder-tag">contingut pròximament</span>
+    </div></div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-trigger" aria-expanded="false">
+      <div class="trigger-left"><span class="trigger-num">03</span><span class="trigger-title">cartografia crítica</span></div>
+      <span class="trigger-icon">+</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      <p>representació del paisatge com a acte polític. cartografies alternatives, contranarratives i visualitzacions experimentals.</p>
+      <span class="placeholder-tag">contingut pròximament</span>
+    </div></div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-trigger" aria-expanded="false">
+      <div class="trigger-left"><span class="trigger-num">04</span><span class="trigger-title">projectes</span></div>
+      <span class="trigger-icon">+</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-body-inner">
+      <p>treballs i visualitzacions desenvolupats en aquesta àrea de recerca.</p>
+      <span class="placeholder-tag">contingut pròximament</span>
+    </div></div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-copy">© 2026 — mqpicbat lab</div>
+  <div class="footer-coords"><span>34°36′S 58°22′W</span><span>buenos aires</span></div>
+</footer>
+
+<script>
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const item = trigger.closest('.accordion-item');
+    const body = item.querySelector('.accordion-body');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item.open').forEach(open => {
+      open.classList.remove('open');
+      open.querySelector('.accordion-body').style.maxHeight = '0';
+      open.querySelector('.accordion-trigger').setAttribute('aria-expanded','false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      trigger.setAttribute('aria-expanded','true');
+    }
+  });
+});
+</script>
+</body>
+</html>
