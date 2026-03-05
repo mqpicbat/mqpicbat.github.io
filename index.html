@@ -1,95 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Miquel Pich — Laboratorio Territorial</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #f2f2f2;
-      line-height: 1.6;
-    }
-    header {
-      padding: 60px 20px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-weight: normal;
-      color: #aaa;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #1c1c1c;
-      padding: 20px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-    .card:hover {
-      background: #222;
-      transform: translateY(-5px);
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #777;
-    }
-    a {
-      color: #fff;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Miquel Pich — Laboratorio Territorial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #111111;
+}
+
+header {
+  padding: 80px 40px 40px 40px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+section {
+  padding: 60px 40px;
+  max-width: 1200px;
+}
+
+.intro {
+  font-size: 20px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 60px;
+  margin-top: 80px;
+}
+
+.project {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.project h3 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.project p {
+  color: #555;
+  font-size: 14px;
+}
+
+footer {
+  padding: 80px 40px;
+  font-size: 12px;
+  color: #999;
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <h1>Miquel Pich</h1>
-  <h2>Art × Science × Territory</h2>
+  <div class="subtitle">Art × Science × Territory</div>
 </header>
 
 <section>
-  <h2>Sobre el laboratorio</h2>
-  <p>
-    Espacio de exploración entre arquitectura, paisaje, ciencia de datos y práctica artística.
-    Investigación territorial, cartografía crítica y proyectos híbridos entre arte y técnica.
-  </p>
-</section>
+  <div class="intro">
+    Laboratorio territorial que explora la intersección entre arquitectura, paisaje, ciencia de datos y práctica artística.
+    Investigación espacial, cartografía crítica y experimentación visual.
+  </div>
 
-<section>
-  <h2>Proyectos</h2>
-  <div class="projects">
-    <div class="card">
+  <div class="grid">
+
+    <div class="project">
       <h3>Fosas Comunes Catalunya</h3>
-      <p>Cartografía y visualización territorial de memoria histórica.</p>
+      <p>Cartografía y visualización de memoria territorial.</p>
     </div>
-    <div class="card">
+
+    <div class="project">
       <h3>Urbanización y Territorio</h3>
-      <p>Análisis espacial aplicado a procesos urbanos latinoamericanos.</p>
+      <p>Análisis espacial aplicado a procesos urbanos en Latinoamérica y Europa.</p>
     </div>
-    <div class="card">
+
+    <div class="project">
       <h3>Arte & Datos</h3>
       <p>Experimentación visual a partir de información geográfica.</p>
     </div>
+
   </div>
 </section>
 
 <footer>
-  © 2026 — Laboratorio Territorial
+  © 2026
 </footer>
 
 </body>
