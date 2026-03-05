@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
 <meta charset="UTF-8">
-<title>Miquel Pich — Laboratorio Territorial</title>
+<title>mqpicbat — Lab</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -16,52 +16,58 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   background: #ffffff;
   color: #111111;
+  -webkit-font-smoothing: antialiased;
 }
 
 header {
-  padding: 80px 40px 40px 40px;
+  padding: 90px 40px 40px 40px;
 }
 
 h1 {
-  font-size: 32px;
-  font-weight: 500;
-  letter-spacing: 1px;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 .subtitle {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #666;
-  letter-spacing: 2px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #777;
+  letter-spacing: 3px;
   text-transform: uppercase;
 }
 
 section {
-  padding: 60px 40px;
+  padding: 80px 40px;
   max-width: 1200px;
 }
 
 .intro {
-  font-size: 20px;
-  max-width: 700px;
+  font-size: 22px;
+  max-width: 720px;
   line-height: 1.6;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 60px;
-  margin-top: 80px;
+  gap: 70px;
+  margin-top: 100px;
 }
 
 .project {
-  border-top: 1px solid #ddd;
-  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 25px;
+  transition: 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-4px);
 }
 
 .project h3 {
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .project p {
@@ -70,9 +76,9 @@ section {
 }
 
 footer {
-  padding: 80px 40px;
+  padding: 100px 40px;
   font-size: 12px;
-  color: #999;
+  color: #aaa;
 }
 </style>
 </head>
@@ -80,38 +86,39 @@ footer {
 <body>
 
 <header>
-  <h1>Miquel Pich</h1>
+  <h1>mqpicbat</h1>
   <div class="subtitle">Art × Science × Territory</div>
 </header>
 
 <section>
   <div class="intro">
-    Laboratorio territorial que explora la intersección entre arquitectura, paisaje, ciencia de datos y práctica artística.
-    Investigación espacial, cartografía crítica y experimentación visual.
+    Lab territorial que explora la intersecció entre arquitectura, paisatge,
+    ciència de dades i pràctica artística. Investigació espacial,
+    cartografia crítica i experimentació visual.
   </div>
 
   <div class="grid">
 
     <div class="project">
-      <h3>Fosas Comunes Catalunya</h3>
-      <p>Cartografía y visualización de memoria territorial.</p>
+      <h3>Foses Comunes Catalunya</h3>
+      <p>Cartografia i visualització de memòria territorial.</p>
     </div>
 
     <div class="project">
-      <h3>Urbanización y Territorio</h3>
-      <p>Análisis espacial aplicado a procesos urbanos en Latinoamérica y Europa.</p>
+      <h3>Urbanització i Territori</h3>
+      <p>Anàlisi espacial aplicada a processos urbans a Europa i Llatinoamèrica.</p>
     </div>
 
     <div class="project">
-      <h3>Arte & Datos</h3>
-      <p>Experimentación visual a partir de información geográfica.</p>
+      <h3>Art & Dades</h3>
+      <p>Experimentació visual a partir d'informació geogràfica.</p>
     </div>
 
   </div>
 </section>
 
 <footer>
-  © 2026
+  © 2026 — mqpicbat Lab
 </footer>
 
 </body>
