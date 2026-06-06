@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<title>contacte — mqpicbat</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="dades de contacte de mqpicbat lab — laboratori independent.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --black:  #000000;
+  --white:  #ffffff;
+  --dim:    rgba(255,255,255,0.45);
+  --line:   rgba(255,255,255,0.18);
+  --accent: #e8ff00;
+  --mono:   'Space Mono', monospace;
+  --speed:  0.35s;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--mono);
+  -webkit-font-smoothing: antialiased;
+  cursor: crosshair;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* scan-line accent */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--accent);
+  z-index: 9998;
+}
+
+/* top bar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(28px, 4vw, 50px) clamp(24px, 6vw, 80px) 0;
+  animation: fadeUp 0.9s ease both;
+}
+
+.topbar a.home {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  color: var(--white);
+  text-decoration: none;
+}
+.topbar a.home::after {
+  content: '_';
+  color: var(--accent);
+  animation: blink 1.1s step-end infinite;
+}
+
+.topbar a.back {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color var(--speed);
+}
+.topbar a.back:hover { color: var(--white); }
+
+/* main */
+section.main {
+  padding: clamp(40px, 6vw, 90px) clamp(24px, 6vw, 80px) clamp(40px, 5vw, 70px);
+  max-width: 1100px;
+  width: 100%;
+  flex: 1;
+}
+
+.sec-index {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  animation: fadeUp 0.9s 0.15s ease both;
+}
+
+h1 {
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: lowercase;
+  line-height: 1;
+  margin-bottom: 28px;
+  animation: fadeUp 0.9s 0.25s ease both;
+}
+
+.lead {
+  font-size: clamp(14px, 1.7vw, 18px);
+  line-height: 1.8;
+  max-width: 620px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: clamp(36px, 5vw, 60px);
+  animation: fadeUp 0.9s 0.35s ease both;
+}
+.lead em { font-style: italic; color: var(--dim); }
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin-bottom: clamp(36px, 5vw, 60px);
+  transform-origin: left;
+  animation: scaleX 1.1s 0.3s ease both;
+}
+@keyframes scaleX {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* contact data list */
+.data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  animation: fadeUp 0.9s 0.45s ease both;
+}
+
+.data-item {
+  border-top: 1px solid var(--line);
+  padding: 26px 0;
+}
+.data-item:nth-child(odd)  { padding-right: clamp(20px, 4vw, 60px); }
+.data-item:nth-child(even) { padding-left:  clamp(20px, 4vw, 60px); border-left: 1px solid var(--line); }
+
+.data-label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 12px;
+}
+
+.data-value {
+  font-size: clamp(15px, 1.8vw, 19px);
+  letter-spacing: 1px;
+  line-height: 1.5;
+  color: var(--white);
+  word-break: break-word;
+}
+.data-value a {
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  transition: color var(--speed);
+}
+.data-value a:hover { color: var(--accent); }
+
+.data-value.accent { color: var(--accent); }
+
+/* footer */
+footer {
+  padding: clamp(24px, 3vw, 40px) clamp(24px, 6vw, 80px) clamp(24px, 3vw, 36px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid var(--line);
+  animation: fadeUp 0.9s 0.6s ease both;
+}
+.footer-copy {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+.footer-coords {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--dim);
+  text-align: right;
+}
+.footer-coords span { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .data { grid-template-columns: 1fr; }
+  .data-item:nth-child(even) { padding-left: 0; border-left: none; }
+  .data-item:nth-child(odd)  { padding-right: 0; }
+  footer { flex-direction: column; gap: 18px; align-items: flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../" class="home">mqpicbat</a>
+  <a href="../" class="back">← índex</a>
+</div>
+
+<section class="main">
+
+  <div class="sec-index">— / contacte</div>
+  <h1>contacte</h1>
+
+  <p class="lead">
+    <em>mqpicbat lab</em> — laboratori independent que investiga la
+    intersecció entre art, arquitectura, tecnologia i sistemes territorials.
+    per a col·laboracions, encàrrecs o consultes:
+  </p>
+
+  <hr class="rule">
+
+  <div class="data">
+
+    <div class="data-item">
+      <span class="data-label">empresa</span>
+      <span class="data-value accent">mqpicbat lab</span>
+    </div>
+
+    <div class="data-item">
+      <span class="data-label">responsable</span>
+      <span class="data-value">Miquel Pich Aguilera Batlle</span>
+    </div>
+
+    <div class="data-item">
+      <span class="data-label">correu</span>
+      <span class="data-value"><a href="mailto:mpichbatlle@gmail.com">mpichbatlle@gmail.com</a></span>
+    </div>
+
+    <div class="data-item">
+      <span class="data-label">telèfon</span>
+      <span class="data-value">(+54) 9 11 2267-1881</span>
+    </div>
+
+    <div class="data-item">
+      <span class="data-label">adreça</span>
+      <span class="data-value">Parque Patricios, CABA<br>buenos aires, argentina</span>
+    </div>
+
+    <div class="data-item">
+      <span class="data-label">web</span>
+      <span class="data-value"><a href="https://mqpicbat.github.io/">mqpicbat.github.io</a></span>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-copy">© 2026 — mqpicbat lab</div>
+  <div class="footer-coords">
+    <span>34°36′S 58°22′W</span>
+    <span>buenos aires</span>
+  </div>
+</footer>
+
+</body>
+</html>
