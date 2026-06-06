@@ -186,34 +186,49 @@ section.main {
   flex: 1;
 }
 
-.sec-index {
-  font-size: 10px;
-  letter-spacing: 4px;
+/* intro block */
+.intro-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  animation: fadeUp 0.9s 0.3s ease both;
+  margin-bottom: clamp(40px, 5vw, 70px);
+}
+
+.intro {
+  font-size: clamp(15px, 1.8vw, 19px);
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.intro em {
+  font-style: italic;
   color: var(--dim);
-  text-transform: uppercase;
-  margin-bottom: 22px;
-  animation: fadeUp 0.9s 0.15s ease both;
 }
 
-h2 {
-  font-size: clamp(32px, 6vw, 56px);
-  font-weight: 700;
+.status-block {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 4px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
   letter-spacing: 3px;
-  text-transform: lowercase;
-  line-height: 1;
-  margin-bottom: 28px;
-  animation: fadeUp 0.9s 0.25s ease both;
+  text-transform: uppercase;
+  color: var(--dim);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
 }
 
-.lead {
-  font-size: clamp(14px, 1.7vw, 18px);
-  line-height: 1.8;
-  max-width: 620px;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: clamp(36px, 5vw, 60px);
-  animation: fadeUp 0.9s 0.35s ease both;
+.status-item span:last-child {
+  color: var(--accent);
 }
-.lead em { font-style: italic; color: var(--dim); }
 
 .content-rule {
   border: none;
@@ -302,6 +317,7 @@ footer {
   }
   .logo-img { height: 80px; }
   .header-right { justify-content: flex-start; }
+  .intro-block { grid-template-columns: 1fr; gap: 36px; }
   .data { grid-template-columns: 1fr; }
   .data-item:nth-child(even) { padding-left: 0; border-left: none; }
   .data-item:nth-child(odd)  { padding-right: 0; }
@@ -339,14 +355,34 @@ footer {
 
 <section class="main">
 
-  <div class="sec-index">— / contacte</div>
-  <h2>contacte</h2>
+  <div class="intro-block">
+    <div class="intro">
+      laboratori independent que investiga la<br>
+      intersecció entre <em>art, arquitectura,</em><br>
+      <em>tecnologia</em> i sistemes territorials.<br><br>
+      per a col·laboracions, encàrrecs<br>
+      o consultes:
+    </div>
 
-  <p class="lead">
-    <em>mqpicbat lab</em> — laboratori independent que investiga la
-    intersecció entre art, arquitectura, tecnologia i sistemes territorials.
-    per a col·laboracions, encàrrecs o consultes:
-  </p>
+    <div class="status-block">
+      <div class="status-item">
+        <span>empresa</span>
+        <span>mqpicbat_lab</span>
+      </div>
+      <div class="status-item">
+        <span>correu</span>
+        <span>mpichbatlle@gmail.com</span>
+      </div>
+      <div class="status-item">
+        <span>ubicació</span>
+        <span>buenos aires</span>
+      </div>
+      <div class="status-item">
+        <span>modalitat</span>
+        <span>independent</span>
+      </div>
+    </div>
+  </div>
 
   <hr class="content-rule">
 
