@@ -59,7 +59,6 @@ body::after {
   justify-content: space-between;
   align-items: stretch;
   padding: clamp(32px, 4vw, 60px) clamp(24px, 6vw, 80px) 0;
-  border-bottom: 1px solid var(--line);
   animation: fadeUp 0.9s ease both;
   gap: 40px;
   max-width: 1200px;
@@ -71,6 +70,8 @@ body::after {
   flex-direction: column;
   justify-content: flex-start;
   gap: 18px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: clamp(14px, 1.8vw, 22px);
 }
 
 .header-right {
