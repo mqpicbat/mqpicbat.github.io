@@ -59,16 +59,18 @@ body::after {
   justify-content: space-between;
   align-items: stretch;
   padding: clamp(32px, 4vw, 60px) clamp(24px, 6vw, 80px) 0;
+  border-bottom: 1px solid var(--line);
   animation: fadeUp 0.9s ease both;
   gap: 40px;
   max-width: 1200px;
+  width: 100%;
 }
 
 .header-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: flex-start;
+  gap: 18px;
 }
 
 .header-right {
@@ -133,6 +135,9 @@ h1::after {
 nav {
   display: flex;
   gap: 32px;
+  width: 100%;
+  border-top: 1px solid var(--line);
+  padding-top: clamp(14px, 1.8vw, 22px);
 }
 
 nav a {
@@ -161,14 +166,15 @@ nav a.active {
   color: var(--white);
 }
 nav a.active::after {
-  width: 100%;
+  display: none;
 }
 
 /* divider */
 .rule {
-  margin: clamp(24px, 3vw, 40px) clamp(24px, 6vw, 80px) 0;
+  margin: clamp(24px, 3vw, 40px) 0 0;
   border: none;
   border-top: 1px solid var(--line);
+  width: 100%;
   animation: scaleX 1.1s 0.2s ease both;
   transform-origin: left;
 }
@@ -180,7 +186,7 @@ nav a.active::after {
 
 /* main */
 section.main {
-  padding: clamp(32px, 4vw, 60px) clamp(24px, 6vw, 80px) clamp(24px, 3vw, 40px);
+  padding: clamp(20px, 2.5vw, 36px) clamp(24px, 6vw, 80px) clamp(24px, 3vw, 40px);
   max-width: 1200px;
   width: 100%;
   flex: 1;
@@ -193,11 +199,11 @@ section.main {
   gap: 80px;
   align-items: end;
   animation: fadeUp 0.9s 0.3s ease both;
-  margin-bottom: clamp(40px, 5vw, 70px);
+  margin-bottom: clamp(20px, 2.5vw, 36px);
 }
 
 .intro {
-  font-size: clamp(15px, 1.8vw, 19px);
+  font-size: clamp(12px, 1.3vw, 14px);
   line-height: 1.85;
   font-weight: 400;
 }
@@ -218,7 +224,7 @@ section.main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--dim);
@@ -230,57 +236,115 @@ section.main {
   color: var(--accent);
 }
 
-.content-rule {
-  border: none;
-  border-top: 1px solid var(--line);
-  margin-bottom: clamp(36px, 5vw, 60px);
-  transform-origin: left;
-  animation: scaleX 1.1s 0.3s ease both;
+.status-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity var(--speed);
+}
+.status-link:hover { opacity: 0.7; }
+
+/* sobre mi */
+.sobre-mi {
+  margin-top: clamp(20px, 2.5vw, 36px);
+  animation: fadeUp 0.9s 0.55s ease both;
 }
 
-/* contact data */
-.data {
+.sobre-mi > details {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+}
+
+.sobre-mi > details[open] {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.sobre-mi-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--dim);
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sobre-mi-label::-webkit-details-marker { display: none; }
+
+.sobre-mi-label:hover { color: var(--white); }
+
+.sobre-mi-grid-wrap {
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+}
+
+.sobre-mi-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  animation: fadeUp 0.9s 0.45s ease both;
+  grid-template-columns: 220px 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
 }
 
-.data-item {
-  border-top: 1px solid var(--line);
-  padding: 26px 0;
-}
-.data-item:nth-child(odd)  { padding-right: clamp(20px, 4vw, 60px); }
-.data-item:nth-child(even) { padding-left: clamp(20px, 4vw, 60px); border-left: 1px solid var(--line); }
-
-.data-label {
+#av {
   display: block;
+  width: 100%;
+  image-rendering: pixelated;
+}
+
+.sobre-mi-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.sobre-mi-name {
+  font-size: clamp(14px, 1.8vw, 18px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  line-height: 1.2;
+}
+
+.sobre-mi-role {
   font-size: 9px;
   letter-spacing: 4px;
+  color: var(--accent);
   text-transform: uppercase;
-  color: var(--dim);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
-.data-value {
-  font-size: clamp(15px, 1.8vw, 19px);
-  letter-spacing: 1px;
-  line-height: 1.5;
-  color: var(--white);
-  word-break: break-word;
+.bio {
+  font-size: clamp(11px, 1.1vw, 13px);
+  line-height: 2;
+  color: rgba(255,255,255,0.75);
 }
-.data-value a {
-  color: var(--white);
+
+.cv-link {
+  display: block;
+  margin-top: 20px;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid var(--accent);
-  transition: color var(--speed);
+  border: 1px solid var(--accent);
+  padding: 6px 12px;
+  width: fit-content;
+  margin-left: auto;
+  transition: background var(--speed), color var(--speed);
 }
-.data-value a:hover { color: var(--accent); }
-.data-value.accent { color: var(--accent); }
+.cv-link:hover {
+  background: var(--accent);
+  color: var(--black);
+}
 
 /* footer */
 footer {
-  padding: clamp(28px, 3vw, 44px) clamp(24px, 6vw, 80px) clamp(24px, 3vw, 36px);
+  padding: 16px clamp(24px, 6vw, 80px);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -299,7 +363,7 @@ footer {
   color: var(--dim);
   text-align: right;
 }
-.footer-coords span { display: block; }
+.footer-coords span { display: inline; }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -318,9 +382,8 @@ footer {
   .logo-img { height: 80px; }
   .header-right { justify-content: flex-start; }
   .intro-block { grid-template-columns: 1fr; gap: 36px; }
-  .data { grid-template-columns: 1fr; }
-  .data-item:nth-child(even) { padding-left: 0; border-left: none; }
-  .data-item:nth-child(odd)  { padding-right: 0; }
+  .sobre-mi-grid { grid-template-columns: 1fr; }
+  #av { max-width: 220px; }
   footer { flex-direction: column; gap: 18px; align-items: flex-start; }
 }
 
@@ -351,8 +414,6 @@ footer {
   </div>
 </div>
 
-<hr class="rule">
-
 <section class="main">
 
   <div class="intro-block">
@@ -366,16 +427,16 @@ footer {
 
     <div class="status-block">
       <div class="status-item">
-        <span>empresa</span>
-        <span>mqpicbat_lab</span>
+        <span>correu</span>
+        <span><a href="mailto:mpichbatlle@gmail.com" class="status-link">mpichbatlle@gmail.com</a></span>
       </div>
       <div class="status-item">
-        <span>correu</span>
-        <span>mpichbatlle@gmail.com</span>
+        <span>telèfon</span>
+        <span>(+54) 9 11 2267-1881</span>
       </div>
       <div class="status-item">
         <span>ubicació</span>
-        <span>buenos aires</span>
+        <span>parque patricios, caba, argentina</span>
       </div>
       <div class="status-item">
         <span>modalitat</span>
@@ -384,40 +445,35 @@ footer {
     </div>
   </div>
 
-  <hr class="content-rule">
+  <div class="sobre-mi">
+    <details open>
+      <summary class="sobre-mi-label">— / sobre mi</summary>
+      <div class="sobre-mi-grid-wrap">
+        <div class="sobre-mi-grid">
 
-  <div class="data">
+          <img id="av" src="../assets/img/avatar.png" alt="Miquel Pich Aguilera Batlle">
 
-    <div class="data-item">
-      <span class="data-label">empresa</span>
-      <span class="data-value accent">mqpicbat_lab</span>
-    </div>
+          <div class="sobre-mi-content">
+            <div class="sobre-mi-name">Miquel Pich Aguilera Batlle</div>
+            <div class="sobre-mi-role">analista geoespacial · arquitecte · planificador del territori</div>
+            <p class="bio">
+            Arquitecte i urbanista format a la <em>Universitat Politècnica de Catalunya</em>
+            (ETSAV-UPC), màster en Hàbitat i Pobresa Urbana a l'Amèrica Llatina
+            (FADU-UBA, tesi pendent), amb formació de postgrau en anàlisi de dades,
+            polítiques públiques i ciència de dades. Compta amb més de deu anys
+            d'experiència en <em>assentaments informals</em>, planificació territorial i
+            integració sòcio-urbana a l'àrea metropolitana de Buenos Aires i a
+            l'Amèrica Llatina, tant des del sector públic com en col·laboració amb
+            organitzacions de base i cooperatives. La seva tasca s'ha centrat en la
+            millora d'assentaments informals, la infraestructura urbana i ambiental i l'<em>anàlisis geoespacial</em> com a eina per
+            a la planificació i la presa de decisions.
+            </p>
+            <a href="../assets/2026_CV_MPAB.pdf" download class="cv-link">↓ descarregar cv</a>
+          </div>
 
-    <div class="data-item">
-      <span class="data-label">responsable</span>
-      <span class="data-value">Miquel Pich Aguilera Batlle</span>
-    </div>
-
-    <div class="data-item">
-      <span class="data-label">correu</span>
-      <span class="data-value"><a href="mailto:mpichbatlle@gmail.com">mpichbatlle@gmail.com</a></span>
-    </div>
-
-    <div class="data-item">
-      <span class="data-label">telèfon</span>
-      <span class="data-value">(+54) 9 11 2267-1881</span>
-    </div>
-
-    <div class="data-item">
-      <span class="data-label">adreça</span>
-      <span class="data-value">parque patricios, caba<br>buenos aires, argentina</span>
-    </div>
-
-    <div class="data-item">
-      <span class="data-label">web</span>
-      <span class="data-value"><a href="https://mqpicbat.github.io/">mqpicbat.github.io</a></span>
-    </div>
-
+        </div>
+      </div>
+    </details>
   </div>
 
 </section>
@@ -425,8 +481,7 @@ footer {
 <footer>
   <div class="footer-copy">© 2026 — mqpicbat lab</div>
   <div class="footer-coords">
-    <span>34°36′S 58°22′W</span>
-    <span>buenos aires</span>
+    <span>34°36′S 58°22′W — buenos aires</span>
   </div>
 </footer>
 
